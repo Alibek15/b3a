@@ -7,6 +7,11 @@ const weatherSchema = new mongoose.Schema({
     icon: String,
     sunrise: String, 
     sunset: String, 
+    hummidity:Number,
+    windSpeed:Number,
+    max_temp:Number,
+    min_temp:Number,
+    pressure:String,
     userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
