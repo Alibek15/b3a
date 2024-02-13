@@ -35,7 +35,7 @@ This is application for 3 task to work with MongoDB and node js. It include admi
 ### Creator
 1.Alibek group SE-2201
 ### Deployed web host 
-https://aa-e7wr.onrender.com
+https://webweb3.onrender.com/
 
 ## APIs used
 - OpenWeatherMap API (for weather data)
