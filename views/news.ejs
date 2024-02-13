@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>World news</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .article-item {
+      margin-bottom: 20px; /* Adjust as needed */
+    }
+  </style>
+</head>
+<body  style="background-color: #ffdab9;">
+    <%- include('partials/navbar') %>
+  
+  <div class="container py-5">
+    <h1 class="mb-4 text-center">World wide news</h1>
+    <div class="row justify-content-center"> <!-- Center the row -->
+      <div class="col-md-6"> <!-- Make the form larger (6 columns on medium devices) -->
+        <form action="/search-news" method="get" class="d-flex">
+          <input type="text" id="keyword" name="keyword" class="form-control mr-2" placeholder="Enter keyword for news search"> <!-- Add margin-right for spacing -->
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <% if(articles) { %>
+          <% articles.forEach(article => { %>
+              <div class="col-md-4">
+                  <div class="article-item card">
+                      <% if(article.urlToImage) { %>
+                          <img src="<%= article.urlToImage %>" alt="Article Image" class="card-img-top">
+                      <% } %>
+                      <div class="card-body">
+                          <h5 class="card-title"><a href="<%= article.url %>" target="_blank" class="article-link">
+                              <%= article.title %>
+                          </a></h5>
+                          <p class="card-text"><%= article.description %></p>
+                      </div>
+                  </div>
+              </div>
+          <% }); %>
+      <% } %>
+    </div>
+  </div>
+  
+  <% include('partials/footer') %> 
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
