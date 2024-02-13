@@ -31,6 +31,10 @@
                       <p class="mb-1">Description: <%= report.description %></p>
                       <p class="mb-1">Sunrise: <%= report.sunrise %></p>
                       <p class="mb-1">Sunset: <%= report.sunset %></p>
+                      <p class="mb-1">Humidity: <%= report.humidity %>%</p>
+                      <p class="mb-1">Wind: <%= report.windSpeed %> m/s</p>
+                      <p class="mb-1">Max temp: <%= report.max_temp %> m/s</p>
+                      <p class="mb-1">Min temp: <%= report.min_temp %> m/s</p>
                       <small>Date: <%= new Date(report.date).toLocaleDateString() %></small>
                     </div>
                     <div>
