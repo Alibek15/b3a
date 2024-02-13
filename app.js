@@ -15,10 +15,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 mongoose
-  .connect("mongodb+srv://Alibek:Alibek2003@cluster0.q2xkngv.mongodb.net/?retryWrites=true&w=majority", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect("mongodb+srv://Alibek:Alibek2003@cluster0.q2xkngv.mongodb.net/?retryWrites=true&w=majority")
   .then(() => console.log("MongoDB connection established"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
