@@ -15,7 +15,10 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 mongoose
-  .connect("mongodb+srv://Alibek:Alibek2003@cluster0.q2xkngv.mongodb.net/?retryWrites=true&w=majority")
+  .connect("mongodb+srv://Alibek:Alibek2003@cluster0.q2xkngv.mongodb.net/?retryWrites=true&w=majority", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => console.log("MongoDB connection established"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
@@ -74,6 +77,11 @@ app.get("/", (req, res) => {
         sunset: weatherDat.sunset,
         lon:weatherData.coord.lon,
         lat:weatherData.coord.lat,
+        hummidity:weatherData.main.humidity,
+        windSpeed:weatherData.wind.speed,
+        max_temp:weatherData.main.temp_max,
+        min_temp:weatherData.main.temp_min,
+        pressure:weatherData.main.pressure,
       });
   
       await newWeather.save();
